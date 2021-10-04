@@ -1,6 +1,8 @@
 import React from 'react'
-import { Card, Button } from 'react-bootstrap'
+import { Card } from 'react-bootstrap'
+import AddExpense from './AddExpense'
 import '../../Styles/Dashboard-cards.css'
+
 
 function DashboardCards() {
     return (
@@ -28,11 +30,7 @@ function DashboardCards() {
             </Card.Body>
             </Card>
 
-            <div className="mb-2 flexBlock">
-            <Button variant="primary" size="lg" style={{marginTop: '18px'}}>
-            Add an Expense
-            </Button>{' '}
-            </div>
+            <AddExpense/>
             </div>
             <hr></hr>
         </div>

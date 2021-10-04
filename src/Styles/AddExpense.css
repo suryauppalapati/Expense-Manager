@@ -1,5 +1,10 @@
-.add-exp-btn{
+.modal-btn{
     flex: 3;
    margin: 10px 45px 0 55px;
+   font-family: 'Poppins', sans-serif;
+   
 }
 
+.btn-block{
+    background-color: #1F1456;
+}

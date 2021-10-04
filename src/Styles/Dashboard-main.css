@@ -1,0 +1,20 @@
+h2{
+    font-family: 'Poppins', sans-serif;   
+     margin: 15px 55px;
+    font-weight: 900;
+    color: #091130;
+}
+
+.text-class{
+    font-family: 'Sora', sans-serif;
+    color: rgb(2, 2, 2);
+    font-weight: bold;
+    font-size: larger;
+}
+
+.label-class{
+    font-family: 'Poppins', sans-serif;   
+    color: #091130;
+    font-weight: bold;
+    font-size: larger;
+}

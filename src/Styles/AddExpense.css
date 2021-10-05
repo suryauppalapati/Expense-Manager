@@ -8,3 +8,21 @@
 .btn-block{
     background-color: #1F1456;
 }
+
+input{
+    width: 100%;
+}
+
+label{
+    font-family: 'Poppins', sans-serif;   
+    color: #091130;
+    font-weight: lighter;
+    font-size: medium;
+    margin-top: 15px;
+}
+
+.modal-title{
+    font-family: 'Poppins', sans-serif;   
+    font-weight: 900;
+    color: #091130;
+}

@@ -1,7 +1,6 @@
 import React, {useState} from 'react'
 import '../../Styles/AddExpense.css'
-import { Button } from 'react-bootstrap'
-import Modal from 'react-modal'
+import { Modal, Button } from 'react-bootstrap'
 
 function AddExpense() {
 
@@ -17,21 +16,17 @@ function AddExpense() {
             </div>
             <Modal show={show} onHide={handleClose}>
                 <Modal.Header closeButton>
-                    <Modal.Title>Add an Expenses</Modal.Title>
+                    <Modal.Title className="modal-title">Add an Expense</Modal.Title>
                 </Modal.Header>
 
                 <Modal.Body>
                         <div>
-                            <label htmlFor="addExpense">Add amount</label>
-                            <input id="addExpense" type="text" />
+                            <label htmlFor="addExpense" className="label-Class" aria-required>Add amount</label><br/>
+                            <input id="addExpense" type="text" /><br/>
 
-                            <label htmlFor="description">Description</label>
-                            <input id="description" type="text" />
-
-                            <label htmlFor="message">Message</label>
-                            <textarea id="message" />
+                            <label htmlFor="description" className="label-Class">Description</label><br/>
+                            <input id="description" type="text" /><br/>    
                         </div>
-                        <button type="submit" onClick={handleClose}>Submit</button>
                 </Modal.Body>
 
                 <Modal.Footer>
@@ -45,13 +40,3 @@ function AddExpense() {
 }
 
 export default AddExpense
-
-
-
-
-
-
-
-
-
-

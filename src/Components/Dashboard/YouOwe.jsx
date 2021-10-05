@@ -11,7 +11,7 @@ function YouOwe() {
 
                         <div className="youowe-info">
                             <Card.Body className="you-owe-body text-class" style={{ float: 'center' }}>
-                                You owe Rs.50 to John Smith
+                                You owe Rs.150 to John Smith
 
                                  <Button className="btn-block"
                                     style={{ marginTop: '0px', marginLeft: '20px',backgroundColor:"#192b74" }} 

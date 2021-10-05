@@ -13,21 +13,21 @@ function DashboardCards() {
             <Card style={{ width: '18rem'}} className="flexBlock shadow p-3 mb-5 bg-white rounded">
             <Card.Body className="card-body">
                 <Card.Title className="label-class">Total Balance</Card.Title>
-                <Card.Text className="text-class">500₹</Card.Text>
+                <Card.Text className="text-class">Rs.500</Card.Text>
             </Card.Body>
             </Card>
 
             <Card style={{ width: '18rem' }} className="flexBlock shadow p-3 mb-5 bg-white rounded">
             <Card.Body className="card-body">
                 <Card.Title className="label-class">You Owe</Card.Title>
-                <Card.Text className="text-class">50₹</Card.Text>
+                <Card.Text className="text-class">Rs.50</Card.Text>
             </Card.Body>
             </Card>
 
             <Card style={{ width: '18rem' }} className="flexBlock shadow p-3 mb-5 bg-white rounded">
             <Card.Body className="card-body">
                 <Card.Title className="label-class">You are owed</Card.Title>
-                <Card.Text className="text-class">125₹</Card.Text>
+                <Card.Text className="text-class">Rs.125</Card.Text>
             </Card.Body>
             </Card>
 

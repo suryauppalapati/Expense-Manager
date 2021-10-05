@@ -17,7 +17,7 @@ function AddExpense() {
     return (
       <>  
         <div className="mb-2 modal-btn">
-            <Button size="lg" style={{marginTop: '35px'}} onClick={(handleShow)} className="btn-block">
+            <Button size="lg" style={{marginTop: '35px', backgroundColor:'#091130'}} onClick={(handleShow)} className="btn-block">
             Add an Expense
             </Button>
             </div>
@@ -57,7 +57,7 @@ function AddExpense() {
                 <Modal.Footer>
                     <Button variant="secondary" onClick={handleClose}>Close</Button>
 
-                    <Button variant="primary" className="btn-block" onClick={handleClose}>Share</Button>
+                    <Button variant="primary" style={{backgroundColor:'#091130'}} className="btn-block" onClick={handleClose}>Share</Button>
                 </Modal.Footer>
             </Modal>
       </>

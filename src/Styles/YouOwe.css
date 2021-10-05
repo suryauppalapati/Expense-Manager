@@ -14,3 +14,14 @@
 .btn-block{
     background-color: #1F1456;
 }
+
+.btn-settleall{
+    background-color: #1F1456;
+    top: 500px;
+}
+
+.button-corner {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+}

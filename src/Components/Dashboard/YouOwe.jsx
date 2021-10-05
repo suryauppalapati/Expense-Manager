@@ -7,7 +7,7 @@ function YouOwe() {
             <h3 style={{margin: '5px 55px'}} className="label-class">You Owe</h3>
             <hr style={{width:'90%',margin: '5px 0px 15px 55px'}}></hr>
                 <div className="youowe-container" style={{marginLeft: '55px'}}>
-                    <Card style={{ width: '35rem', height: '19rem' }} className="shadow p-3 mb-5 bg-white rounded">
+                    <Card style={{ width: '35rem', height: '15rem' }} className="shadow p-3 mb-5 bg-white rounded">
 
                         <div className="youowe-info">
                             <Card.Body className="you-owe-body text-class" style={{ float: 'center' }}>
@@ -19,10 +19,17 @@ function YouOwe() {
                                     size="sm">
                                     Settle
                                 </Button>{' '}
+
                         </Card.Body>
                         </div>
                     </Card>
                 </div>
+                <Button className="btn-settleall"
+                                    style={{ marginTop: '-60px', marginLeft: '535px' }} 
+                                    variant="secondary" 
+                                    size="sm">
+                                    Settle all
+                                </Button>{' '}
         </div>
     )
 }

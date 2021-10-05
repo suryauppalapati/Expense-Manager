@@ -15,7 +15,7 @@ function YouAreOwed() {
                         <Card.Body className="you-owe-body text-class" style={{ float: 'center' }}>
                             Robb owe you 125$
 
-                            <Button 
+                            <Button className="btn-block"
                                 style={{ marginTop: '0px', marginLeft: '20px' }} 
                                 variant="secondary" 
                                 size="sm">

@@ -26,3 +26,43 @@ label{
     font-weight: 900;
     color: #091130;
 }
+
+DropdownButton{
+    background-color: aliceblue;
+    width: 100%;
+}
+
+.custom-select{
+    width: 82%;
+    height: 36px;
+    margin-top: 21px;
+    border-radius: 2px;
+    font-family: 'Montserrat', sans-serif;
+    color: rgb(2, 2, 2);
+    font-weight: lighter;
+    font-size: medium;
+}
+
+.input-group-text{
+    margin-top: 20px;
+}
+
+.add-remove{
+    width: 100%;
+    height: 35px;
+    font-family: 'Montserrat', sans-serif;
+    color: rgb(2, 2, 2);
+    font-weight: lighter;
+    font-size: medium;
+}
+
+.GroupSelect{
+    margin-top: 5px;
+}
+
+.Share-with{
+    margin-top: -10px;
+    margin-bottom: 10px;
+    width: 100%;
+    justify-content: center;
+}

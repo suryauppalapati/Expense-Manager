@@ -2,8 +2,55 @@ import React, {useState} from 'react'
 import '../../Styles/AddExpense.css'
 import { Modal, Button } from 'react-bootstrap'
 import {Multiselect}  from 'multiselect-react-dropdown'
+import {useFormik} from 'formik'
+
+//initiating states
+const initialValues = {
+    addAmount : '',
+    description: '',
+    selectGroup: '',
+    selectMembers: []
+}
+
+//Debug SubmitData
+const onSubmit = values => {
+    console.log(values)
+}
+
+//AddExpense Modal Validations
+const validate = values => {
+    let errors = {}
+    if(!values.addAmount){
+        errors.addAmount = 'Add amount is required'
+    } 
+
+    if(!values.description){
+        errors.description = 'Description is required'
+    }else if(values.description.length < 5){
+            errors.description = 'Description should contain morethan 5 characters'
+    }
+
+    if(!values.selectGroup){
+        errors.selectGroup = 'Select group is required'
+    }
+
+    if(!values.selectMembers){
+        errors.selectMembers = 'Share with is required'
+    }
+
+    return errors
+}
 
 function AddExpense() {
+
+    const formik = useFormik({
+        initialValues,
+        onSubmit,
+        validate
+    })
+
+    // console.log(formik.values);
+
     const userData = [
         {userName : "Robb", id: 1},
         {userName : "Mike", id: 2},
@@ -14,6 +61,7 @@ function AddExpense() {
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
+
     return (
       <>  
         <div className="mb-2 modal-btn">
@@ -27,37 +75,41 @@ function AddExpense() {
                 </Modal.Header>
 
                 <Modal.Body>
-                        <div>
-                            <label htmlFor="addExpense" className="label-Class" aria-required>Add amount</label><br/>
-                            <input id="addExpense" type="text" /><br/>
+                        <form onSubmit={formik.handleSubmit}>
+                            <label htmlFor="addAmount" className="label-Class" aria-required>Add amount</label><br/>
+                            <input id="addAmount" type="text" name="addAmount" onChange={formik.handleChange} value={formik.values.addAmount}  onBlur={formik.handleBlur}/><br/>
+                            {formik.errors.addAmount && formik.touched.addAmount  ? <div className="error-alert">{formik.errors.addAmount}</div> : null }
 
                             <label htmlFor="description" className="label-Class">Description</label><br/>
-                            <input id="description" type="text" /><br/>
+                            <input id="description" type="text" name="description" onChange={formik.handleChange} value={formik.values.description} onBlur={formik.handleBlur} /><br/>
+                            {formik.errors.description && formik.touched.description ? <div className="error-alert">{formik.errors.description}</div> : null }
+
 
                             <div class="input-group GroupSelect mb-3">
                             <div class="input-group-prepend">
-                                <label class="input-group-text" for="GroupSelect">Groups</label>
+                                <label class="input-group-text" htmlFor="selectGroup">Groups</label>
                             </div>
-                            <select class="custom-select" id="GroupSelect">
+                            <select class="custom-select" id="selectGroup" name="selectGroup" onChange={formik.handleChange} value={formik.values.selectGroup} onBlur={formik.handleBlur}>
                                 <option selected>Choose...</option>
                                 <option value="1">Group-1</option>
                                 <option value="2">Group-2</option>
                                 <option value="3">Group-3</option>
                             </select>
-                            </div>
+                            </div>{formik.errors.selectGroup && formik.touched.selectGroup ? <div className="error-alert">{formik.errors.selectGroup}</div> : null }
+
 
                             <div className="Share-with">
-                            <label class="label-Class" for="selectMembers">Share with</label><br></br>
-                            <Multiselect options={options} displayValue="userName" id="selectMembers"/>
+                            <label class="label-Class" htmlFor="selectMembers">Share with</label><br></br>
+                            <Multiselect options={options} displayValue="userName" id="selectMembers" name="selectMembers" onChange={formik.handleChange} value={formik.values.selectMembers}/>
                             </div>
 
-                        </div>
+                        </form>
                 </Modal.Body>
 
                 <Modal.Footer>
                     <Button variant="secondary" onClick={handleClose}>Close</Button>
 
-                    <Button variant="primary" style={{backgroundColor:'#091130'}} className="btn-block" onClick={handleClose}>Share</Button>
+                    <Button variant="primary" type='submit' style={{backgroundColor:'#091130'}} className="btn-block">Share</Button>
                 </Modal.Footer>
             </Modal>
       </>

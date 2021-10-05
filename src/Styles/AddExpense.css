@@ -66,3 +66,7 @@ DropdownButton{
     width: 100%;
     justify-content: center;
 }
+
+.error-alert{
+    color: red;
+}

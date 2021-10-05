@@ -13,7 +13,7 @@ function DashboardCards() {
             <Card style={{ width: '18rem'}} className="flexBlock shadow p-3 mb-5 bg-white rounded">
             <Card.Body className="card-body">
                 <Card.Title className="label-class">Total Balance</Card.Title>
-                <Card.Text className="text-class">Rs.500</Card.Text>
+                <Card.Text className="text-class">Rs.75</Card.Text>
             </Card.Body>
             </Card>
 

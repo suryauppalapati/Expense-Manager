@@ -1,0 +1,78 @@
+.myProfile-Body{
+    display: flex;
+    flex-direction: row;
+    margin-top: -15px;
+}
+
+.displayPicture{
+    flex: 5;    
+}
+
+.editProfile{
+    flex: 7;
+}
+
+.avatar{
+    margin: 0% 20% 6% 25% ;
+    border-radius: 50%;
+    border: 3px solid #091130;
+    height: 300px;
+    width: 305px;
+}
+
+.userName{
+    margin: 17% 20% 5% 36% ;
+    color: #091130;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 900;
+    font-size: x-large;
+}
+
+.changeAvatar-btn{
+  margin-left: 180px;
+  margin-bottom: 25px;
+}
+
+label{
+    padding: 7px;
+    background: #272f50; 
+    display: table;
+    color: #fff;
+    border-radius: 5px;
+    margin-left: 5%;
+}
+
+input[type="file"] {
+    display: none;
+}
+
+.card-body{
+margin: 9% 20% 5% 13%;
+}
+
+.uploadAvatar-btn{
+    margin-left: 5px;
+    padding: 2px;
+}
+
+.btn-controls{
+    margin-left: 53px;
+}
+
+.input-label{
+    font-family: 'Poppins', sans-serif;   
+    color: #091130;
+    font-weight:600;
+    font-size: larger;
+}
+
+.inputField{
+    font-family: 'Inter', sans-serif;
+    color: rgb(2, 2, 2);
+    font-weight: bold;
+    font-size: larger;
+}
+
+.row{
+    margin-bottom: 15px;
+}

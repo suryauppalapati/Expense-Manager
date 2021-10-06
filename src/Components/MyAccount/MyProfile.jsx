@@ -9,7 +9,7 @@ function MyProfile() {
  const [edit, setEdit] = useState(true)
 
 const setEditHandler = () => setEdit(false)
-const editHandler = () => edit(true)
+const editHandler = () => setEdit(true)
 
     return (
         <>

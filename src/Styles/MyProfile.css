@@ -33,7 +33,7 @@
   margin-bottom: 25px;
 }
 
-label{
+changeAvatar-btn{
     padding: 7px;
     background: #272f50; 
     display: table;
@@ -69,10 +69,14 @@ margin: 9% 20% 5% 13%;
 .inputField{
     font-family: 'Inter', sans-serif;
     color: rgb(2, 2, 2);
-    font-weight: bold;
+    font-weight: lighter;
     font-size: larger;
 }
 
 .row{
     margin-bottom: 15px;
+}
+
+.error-alert{
+    color: red;
 }

@@ -4,8 +4,50 @@ import Navigationbar from '../navbar'
 import Avatar from '../../Assets/Avatar.png'
 import {Card, Button, Row, Col, Container} from 'react-bootstrap'
 import {AiFillCamera} from 'react-icons/ai'
+import {useFormik} from 'formik'
+
+//initiating states
+const initialValues = {
+    username : '',
+    email : '',
+    password : '',
+}
+
+//SubmitHandler
+const onSubmit = values => {
+    console.log(values)
+}
+
+//Form Validations
+const validate = values => {
+    let errors = {}
+    if(!values.username){
+        errors.username = 'username should not be empty'
+    } 
+
+    if(!values.email){
+        errors.email = 'email should not be empty'
+    }
+
+    if(!values.password){
+        errors.password = 'password should not be empty'
+    }else if(values.password.length < 8){
+            errors.password = 'password should have min 8 characters'
+    }
+
+    return errors
+}
+
+
 
 function MyProfile() {
+
+const formik = useFormik({
+    initialValues,
+    onSubmit,
+    validate
+})
+
  const [edit, setEdit] = useState(true)
 
 const setEditHandler = () => setEdit(false)
@@ -21,7 +63,7 @@ const editHandler = () => setEdit(true)
                         <img src={Avatar} className="avatar" alt="avatar"/>
                         <div className="btn-controls">
                             <label className="changeAvatar-btn"
-                                ><AiFillCamera className="icon"/>
+                                ><AiFillCamera className="icon" size={30}/>
                                 <input type="file"/>
                             </label>
                             <Button className="uploadAvatar-btn"
@@ -39,38 +81,92 @@ const editHandler = () => setEdit(true)
                         <div>
                             <Card.Body className="myDetails-card" style={{float: 'center'}}>
                                 <Container style={{marginTop:'-50px'}}>
+                                <form onSubmit={formik.handleSubmit}>
                                 <Row className="row">
-                                    <Col className="input-label">Name</Col>
                                     <Col>
-                                        <input type="text" className="inputField" disabled={edit}></input>
+                                        <label className="input-label" htmlFor="username">Name</label>
+                                    </Col>
+                                    <Col>
+                                        <input 
+                                        type="text" 
+                                        id="username" 
+                                        name="username" 
+                                        className="inputField" 
+                                        onChange={formik.handleChange} 
+                                        value={formik.values.username}  
+                                        onBlur={formik.handleBlur} 
+                                        disabled={edit}>
+                                        </input>
+                                        {formik.errors.username && formik.touched.username  ? <div className="error-alert">{formik.errors.username}</div> : null }
+
                                     </Col>
                                 </Row>
 
                                 <Row className="row">
-                                    <Col className="input-label">Email</Col>
                                     <Col>
-                                        <input type="email" className="inputField" disabled={edit}></input>
+                                        <label className="input-label" htmlFor="email">Email</label>
+                                    </Col>
+                                    <Col>
+                                        <input 
+                                        type="email" 
+                                        id="email" 
+                                        name="email"
+                                        className="inputField"
+                                        onChange={formik.handleChange}
+                                        value={formik.values.email}  
+                                        onBlur={formik.handleBlur} 
+                                        disabled={edit}>
+                                        </input>
+                                        {formik.errors.email && formik.touched.email  ? <div className="error-alert">{formik.errors.email}</div> : null }
                                     </Col>
                                 </Row>
 
                                 <Row className="row">
-                                    <Col className="input-label">Password</Col>
                                     <Col>
-                                        <input type="password" className="inputField" disabled={edit}></input>
+                                        <label className="input-label" htmlFor="password">Password</label>
+                                    </Col>
+                                    <Col>
+                                        <input 
+                                        type="password" 
+                                        id="password" 
+                                        name="password" 
+                                        className="inputField"
+                                        onChange={formik.handleChange}
+                                        value={formik.values.password}  
+                                        onBlur={formik.handleBlur} 
+                                        disabled={edit}>
+                                        </input>
+                                        {formik.errors.password && formik.touched.password  ? <div className="error-alert">{formik.errors.password}</div> : null }
                                     </Col>
                                 </Row>
 
                                 <Row className="row">
-                                    <Col className="input-label">Currency</Col>
                                     <Col>
-                                        <input type="text" className="inputField" disabled></input>
+                                        <label className="input-label" htmlFor="currency">Currency</label>
+                                    </Col>
+                                    <Col>
+                                        <input 
+                                        type="text" 
+                                        id="currency" 
+                                        name="currency" 
+                                        className="inputField" 
+                                        disabled>
+                                        </input>
                                     </Col>
                                 </Row>
 
                                 <Row className="row">
-                                    <Col className="input-label">Language</Col>
                                     <Col>
-                                        <input type="text" className="inputField" disabled></input>
+                                        <label className="input-label" htmlFor="currency">Country</label>
+                                    </Col>
+                                    <Col>
+                                        <input 
+                                        type="text" 
+                                        id="country" 
+                                        name="country" 
+                                        className="inputField" 
+                                        disabled>
+                                        </input>
                                     </Col>
                                 </Row>
 
@@ -85,6 +181,7 @@ const editHandler = () => setEdit(true)
                                     </Button>{' '}
 
                                     <Button className="saveChanges-btn"
+                                        type="submit"
                                         onClick={editHandler}
                                         style={{backgroundColor:"#091130" }} 
                                         variant="secondary" 
@@ -93,6 +190,7 @@ const editHandler = () => setEdit(true)
                                     </Button>{' '}
                                     </Col>
                                 </Row>
+                                </form>
                                 </Container>
                             </Card.Body>
                         </div>

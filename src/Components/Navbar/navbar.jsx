@@ -4,7 +4,7 @@ import { FaUserAlt } from 'react-icons/fa'
 import { BsFillBellFill } from 'react-icons/bs'
 import { MdOutlineArrowDropDown } from 'react-icons/md'
 import { MdOutlineMenuBook } from 'react-icons/md'
-import '../Styles/navbar.css'
+import '../../Styles/navbar.css'
 
 function Navigationbar() {
     const [show, setShow] = useState(false);

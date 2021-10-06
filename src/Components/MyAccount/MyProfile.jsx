@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import '../../Styles/MyProfile.css'
-import Navigationbar from '../navbar'
+import Navigationbar from '../Navbar/navbar'
 import Avatar from '../../Assets/Avatar.png'
 import {Card, Button, Row, Col, Container} from 'react-bootstrap'
 import {AiFillCamera} from 'react-icons/ai'
@@ -77,7 +77,7 @@ const editHandler = () => setEdit(true)
                     </div>
 
                 <div className="editProfile">{/*User Profile block starts*/}
-                    <Card style={{ width: '35rem', height: '30rem' }} className="card-body shadow p-3 mb-5 bg-white rounded">
+                    <Card style={{ width: '35rem', height: '33rem' }} className="card-body shadow p-3 mb-5 bg-white rounded">
                         <div>
                             <Card.Body className="myDetails-card" style={{float: 'center'}}>
                                 <Container style={{marginTop:'-50px'}}>

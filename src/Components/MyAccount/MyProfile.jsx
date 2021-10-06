@@ -22,17 +22,17 @@ const onSubmit = values => {
 const validate = values => {
     let errors = {}
     if(!values.username){
-        errors.username = 'username should not be empty'
+        errors.username = 'Username should not be empty'
     } 
 
     if(!values.email){
-        errors.email = 'email should not be empty'
+        errors.email = 'Email should not be empty'
     }
 
     if(!values.password){
-        errors.password = 'password should not be empty'
+        errors.password = 'Password should not be empty'
     }else if(values.password.length < 8){
-            errors.password = 'password should have min 8 characters'
+            errors.password = 'Password should have min 8 characters'
     }
 
     return errors

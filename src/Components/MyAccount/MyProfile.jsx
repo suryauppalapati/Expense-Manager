@@ -82,7 +82,7 @@ const editHandler = () => setEdit(true)
                             <Card.Body className="myDetails-card" style={{float: 'center'}}>
                                 <Container style={{marginTop:'-50px'}}>
                                 <form onSubmit={formik.handleSubmit}>
-                                <Row className="row">
+                                <Row className="row"> {/*NAME-ROW*/}
                                     <Col>
                                         <label className="input-label" htmlFor="username">Name</label>
                                     </Col>
@@ -102,7 +102,7 @@ const editHandler = () => setEdit(true)
                                     </Col>
                                 </Row>
 
-                                <Row className="row">
+                                <Row className="row"> {/*EMAIL-ROW*/}
                                     <Col>
                                         <label className="input-label" htmlFor="email">Email</label>
                                     </Col>
@@ -121,7 +121,7 @@ const editHandler = () => setEdit(true)
                                     </Col>
                                 </Row>
 
-                                <Row className="row">
+                                <Row className="row"> {/*PASSWORD-ROW*/}
                                     <Col>
                                         <label className="input-label" htmlFor="password">Password</label>
                                     </Col>
@@ -140,7 +140,7 @@ const editHandler = () => setEdit(true)
                                     </Col>
                                 </Row>
 
-                                <Row className="row">
+                                <Row className="row"> {/*CURRENCY-ROW*/}
                                     <Col>
                                         <label className="input-label" htmlFor="currency">Currency</label>
                                     </Col>
@@ -155,7 +155,7 @@ const editHandler = () => setEdit(true)
                                     </Col>
                                 </Row>
 
-                                <Row className="row">
+                                <Row className="row"> {/*COUNTRY-ROW*/}
                                     <Col>
                                         <label className="input-label" htmlFor="currency">Country</label>
                                     </Col>

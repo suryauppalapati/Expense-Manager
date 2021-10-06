@@ -12,7 +12,7 @@ const initialValues = {
     selectMembers: []
 }
 
-//Debug SubmitData
+//Submit Handler
 const onSubmit = values => {
     console.log(values)
 }
@@ -69,13 +69,14 @@ function AddExpense() {
             Add an Expense
             </Button>
             </div>
+            <form onSubmit={formik.handleSubmit}>
             <Modal show={show} onHide={handleClose}>
                 <Modal.Header closeButton>
                     <Modal.Title className="modal-title">Add an Expense</Modal.Title>
                 </Modal.Header>
 
                 <Modal.Body>
-                        <form onSubmit={formik.handleSubmit}>
+                        
                             <label htmlFor="addAmount" className="label-Class" aria-required>Add amount</label><br/>
                             <input id="addAmount" type="text" name="addAmount" onChange={formik.handleChange} value={formik.values.addAmount}  onBlur={formik.handleBlur}/><br/>
                             {formik.errors.addAmount && formik.touched.addAmount  ? <div className="error-alert">{formik.errors.addAmount}</div> : null }
@@ -84,12 +85,11 @@ function AddExpense() {
                             <input id="description" type="text" name="description" onChange={formik.handleChange} value={formik.values.description} onBlur={formik.handleBlur} /><br/>
                             {formik.errors.description && formik.touched.description ? <div className="error-alert">{formik.errors.description}</div> : null }
 
-
-                            <div class="input-group GroupSelect mb-3">
-                            <div class="input-group-prepend">
-                                <label class="input-group-text" htmlFor="selectGroup">Groups</label>
+                            <div className="input-group GroupSelect mb-3">
+                            <div className="input-group-prepend">
+                                <label className="input-group-text" htmlFor="selectGroup">Groups</label>
                             </div>
-                            <select class="custom-select" id="selectGroup" name="selectGroup" onChange={formik.handleChange} value={formik.values.selectGroup} onBlur={formik.handleBlur}>
+                            <select className="custom-select" id="selectGroup" name="selectGroup" onChange={formik.handleChange} value={formik.values.selectGroup} onBlur={formik.handleBlur}>
                                 <option selected>Choose...</option>
                                 <option value="1">Group-1</option>
                                 <option value="2">Group-2</option>
@@ -97,21 +97,19 @@ function AddExpense() {
                             </select>
                             </div>{formik.errors.selectGroup && formik.touched.selectGroup ? <div className="error-alert">{formik.errors.selectGroup}</div> : null }
 
-
                             <div className="Share-with">
                             <label class="label-Class" htmlFor="selectMembers">Share with</label><br></br>
                             <Multiselect options={options} displayValue="userName" id="selectMembers" name="selectMembers" onChange={formik.handleChange} value={formik.values.selectMembers}/>
                             </div>
-
-                        </form>
                 </Modal.Body>
 
                 <Modal.Footer>
                     <Button variant="secondary" onClick={handleClose}>Close</Button>
-
-                    <Button variant="primary" type='submit' style={{backgroundColor:'#091130'}} className="btn-block">Share</Button>
+                    <Button variant="primary" type='submit' style={{backgroundColor:'#091130'}}  className="btn-block">Share</Button>
                 </Modal.Footer>
+
             </Modal>
+            </form>
       </>
     );
 }

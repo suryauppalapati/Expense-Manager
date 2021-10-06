@@ -1,0 +1,107 @@
+.groupsBody{
+    display: flex;
+    flex-direction: row;
+    margin-top: -15px;
+}
+
+.groupsList{
+    flex: 5;
+}
+
+.createGroup{
+    flex: 7;
+}
+
+.grp-card{
+    margin-top: 2%;
+    margin-left: 15%;
+}
+
+.page-header{
+    font-family: 'Manrope', sans-serif;
+    margin-top: 20%;
+    margin-left: 16%;
+    font-weight: bold;
+    font-size:xx-large;
+    margin-bottom: 15px;
+}
+
+.groupTitle{
+    font-family: 'Inter', sans-serif;
+    color: rgb(2, 2, 2);
+    font-weight: lighter;
+    font-size: larger;
+    margin-left: 18%;
+    
+}
+
+.Card-Header{
+    margin-bottom: 5%;
+    font-family: 'Poppins', sans-serif;   
+    color: #091130;
+    font-weight:600;
+    font-size: larger;
+    text-align: center;
+}
+
+.hr-seperator{
+    width:66%;
+    margin: 5px 0px 15px 80px;
+    color: '#481F90';
+    height: 20px;
+}
+
+.createGroup-card-div{
+    margin-top: 14%;
+    margin-left: 50px;
+}
+
+.creategrp-cardbody{
+    display: flex;
+    flex-direction: row;
+}
+
+.group-picture{
+    flex: 5;
+}
+
+.newgrp-block{
+    flex: 7;
+}
+
+.avatar{
+    height: 275px;
+    width: 275px;
+    margin-top: 10px;
+}
+
+.inputField{
+    width: 100%;
+    margin-top: 5px;
+    font-family: 'Inter', sans-serif;
+    color: rgb(2, 2, 2);
+    font-weight: lighter;
+    font-size: larger;
+
+}
+
+.input-label{
+    font-family: 'Poppins', sans-serif;   
+    color: #091130;
+    font-weight:550;
+    font-size: larger;
+    margin-top: 5%;
+}
+
+.addField{
+    height: 10%;
+}
+
+.Create-grp-btn{
+    margin-top: 32%;
+    margin-left: 60%;
+}
+
+.error-alert{
+    color: red;
+}

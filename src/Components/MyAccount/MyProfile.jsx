@@ -50,7 +50,10 @@ const formik = useFormik({
  const [edit, setEdit] = useState(true)
 
 const setEditHandler = () => setEdit(false)
-const editHandler = () => setEdit(true)
+const editHandler = () => {
+    alert('Profile updated!')
+    setEdit(true)
+    }
 
     return (
         <>

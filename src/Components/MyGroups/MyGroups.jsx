@@ -8,13 +8,16 @@ import {useFormik} from 'formik'
 
 const initialValues = {
     groupname : '',
-    addMembers : ''
+    addMembers : []
 }
 
+//SubmitHandler
 const onSubmit = (values) => {
     console.log(values);
+    alert('Details saved successfully!')
 }
 
+//ValidationRules
 const validate = (values)=> {
     let errors = {};
     
@@ -22,10 +25,6 @@ const validate = (values)=> {
         errors.groupname = 'Groupname required'
     }else if(values.groupname.length < 4){
         errors.groupname = 'Enter a valid groupname'
-    }
-
-    if(!values.addMembers.length<2){
-        errors.addMembers = 'Group should consist of minimum 2 members'
     }
     return errors
 }
@@ -47,6 +46,13 @@ function MyGroups() {
         {userName : "Rohit", id: 5},
     ]
     const [options] = useState(userData)
+
+    //Add members handler
+    const handleAddmembers = (members) => {
+        initialValues.addMembers.push(members);
+    }
+
+    console.log(formik.values);
 
     return (
         <> 
@@ -122,9 +128,10 @@ function MyGroups() {
                                 <div className="group-picture">
                                     <img src={groupAvatar} className="avatar" alt="avatar"/>
                                 </div>
+
+                                <form onSubmit={formik.handleSubmit}>
                                 <div className="newgrp-block">
                                     <Container>
-                                        <form onSubmit={formik.handleSubmit}>
                                             <label className="input-label" htmlFor="groupname">Group Name</label><br/>
                                             <input 
                                             type="text" 
@@ -143,7 +150,8 @@ function MyGroups() {
                                             className="inputField addField" 
                                             options={options} 
                                             displayValue="userName" 
-                                            id="addMembers" 
+                                            id="addMembers"
+                                            onSelect={handleAddmembers} 
                                             onChange={formik.handleChange} 
                                             value={formik.values.addMembers}  
                                             onBlur={formik.handleBlur} 
@@ -157,9 +165,9 @@ function MyGroups() {
                                                 size="sm">
                                                 Create group
                                             </Button>
-                                        </form>
                                     </Container>
                                 </div>
+                                </form>
                             </div>
                         </Card.Body>
                     </Card>

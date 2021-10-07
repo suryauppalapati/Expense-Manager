@@ -81,7 +81,8 @@ const editHandler = () => setEdit(true)
                         <div>
                             <Card.Body className="myDetails-card" style={{float: 'center'}}>
                                 <Container style={{marginTop:'-50px'}}>
-                                <form onSubmit={formik.handleSubmit}>
+
+                            <form onSubmit={formik.handleSubmit}>
                                 <Row className="row"> {/*NAME-ROW*/}
                                     <Col>
                                         <label className="input-label" htmlFor="username">Name</label>

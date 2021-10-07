@@ -1,10 +1,44 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
+import axios from 'axios'
 import { Card } from 'react-bootstrap'
 import AddExpense from './AddExpense'
 import '../../Styles/Dashboard-cards.css'
 
 
 function DashboardCards() {
+
+    //initialising states for totalBalace
+    const [owedetails, setOwedetails] = useState([])
+
+    //get owing details
+    useEffect(() => {
+        axios.get('http://localhost:8001/dashboard_owing_details')
+            .then(res => {
+                console.log(res);
+                setOwedetails(res.data)
+            })
+            .catch(err => {
+                console.log(err);
+            })
+    }, [])
+
+    
+
+    //Total you-owe = adding all the amounts in you-owe array
+    let totalYouOwe;
+    if (owedetails.youOweDetail) {
+        totalYouOwe = owedetails.youOweDetail.reduce((a, b) => a + b, 0);
+    }
+
+    //Total you-owe = adding all the amounts in you-are-owed array
+    let totalYouAreOwed;
+    if (owedetails.youAreOwedDetail) {
+        totalYouAreOwed = owedetails.youAreOwedDetail.reduce((a, b) => a + b, 0);
+    }    
+
+    //Total Balance = youAreOwed - youOwe
+    const totalBalace = owedetails.youAreOwedDetail - owedetails.youOweDetail
+
     return (
         <div>
             <h2>Dashboard</h2>
@@ -13,21 +47,21 @@ function DashboardCards() {
             <Card style={{ width: '18rem'}} className="flexBlock shadow p-3 mb-5 bg-white rounded">
             <Card.Body className="card-body">
                 <Card.Title className="label-class">Total Balance</Card.Title>
-                <Card.Text className="text-class">Rs.75</Card.Text>
+                <Card.Text className="text-class">Rs {totalBalace}</Card.Text>
             </Card.Body>
             </Card>
 
             <Card style={{ width: '18rem' }} className="flexBlock shadow p-3 mb-5 bg-white rounded">
             <Card.Body className="card-body">
                 <Card.Title className="label-class">You Owe</Card.Title>
-                <Card.Text className="text-class">Rs.50</Card.Text>
+                <Card.Text className="text-class">Rs {totalYouOwe}</Card.Text>
             </Card.Body>
             </Card>
 
             <Card style={{ width: '18rem' }} className="flexBlock shadow p-3 mb-5 bg-white rounded">
             <Card.Body className="card-body">
                 <Card.Title className="label-class">You are owed</Card.Title>
-                <Card.Text className="text-class">Rs.125</Card.Text>
+                <Card.Text className="text-class">Rs {totalYouAreOwed}</Card.Text>
             </Card.Body>
             </Card>
 

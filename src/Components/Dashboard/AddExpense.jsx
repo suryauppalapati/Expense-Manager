@@ -78,7 +78,7 @@ function AddExpense() {
                 <Modal.Body>
                         
                             <label htmlFor="addAmount" className="label-Class" aria-required>Add amount</label><br/>
-                            <input id="addAmount" type="text" name="addAmount" onChange={formik.handleChange} value={formik.values.addAmount}  onBlur={formik.handleBlur}/><br/>
+                            <input id="addAmount" type="number" name="addAmount" onChange={formik.handleChange} value={formik.values.addAmount}  onBlur={formik.handleBlur}/><br/>
                             {formik.errors.addAmount && formik.touched.addAmount  ? <div className="error-alert">{formik.errors.addAmount}</div> : null }
 
                             <label htmlFor="description" className="label-Class">Description</label><br/>

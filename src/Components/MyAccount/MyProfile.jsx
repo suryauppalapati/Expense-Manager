@@ -3,7 +3,6 @@ import '../../Styles/MyProfile.css'
 import Navigationbar from '../Navbar/navbar'
 import Avatar from '../../Assets/Avatar.png'
 import {Card, Button, Row, Col, Container} from 'react-bootstrap'
-import {AiFillCamera} from 'react-icons/ai'
 import {useFormik} from 'formik'
 
 //initiating states
@@ -61,19 +60,6 @@ const editHandler = () => setEdit(true)
                 <div className="displayPicture">{/*user Avatar block starts*/}
                     <div className="userName">Joseph Morgan</div>
                         <img src={Avatar} className="avatar" alt="avatar"/>
-                        <div className="btn-controls">
-                            <label className="changeAvatar-btn"
-                                ><AiFillCamera className="icon" size={30}/>
-                                <input type="file"/>
-                            </label>
-                            <Button className="uploadAvatar-btn"
-                                style={{backgroundColor:"#091130" }} 
-                                variant="secondary" 
-                                size="md">
-                                Upload
-                            </Button>{' '}
-                        </div>{/*--user Avatar block ends--*/}
-                 
                     </div>
 
                 <div className="editProfile">{/*User Profile block starts*/}

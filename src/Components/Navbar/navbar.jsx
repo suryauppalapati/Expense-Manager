@@ -18,7 +18,7 @@ function Navigationbar() {
                 Expense Book
             </Navbar.Brand>
             <Nav className="me-auto" style={{color: 'white', size: 'lg', marginLeft:'970px'}}>
-            <NavDropdown title="Account" style={{color: 'white'}} id="navbarScrollingDropdown">
+            <NavDropdown style={{color: '#fff'}} title="Steve Tyson" className="dropdownTitle" id="navbarScrollingDropdown">
             <NavDropdown.Item href="#">My Groups</NavDropdown.Item>
             <NavDropdown.Item href="#">My Profile</NavDropdown.Item>
             <NavDropdown.Divider/>

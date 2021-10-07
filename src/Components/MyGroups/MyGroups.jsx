@@ -167,7 +167,7 @@ function MyGroups() {
                     
 
 
-                </div> {/*--createGroup-div-- onChange={formik.handleChange} value={formik.values.selectMembers}*/}
+                </div> {/*--createGroup-div--*/}
             </div>{/*--Main-Div--*/}
 
         </>

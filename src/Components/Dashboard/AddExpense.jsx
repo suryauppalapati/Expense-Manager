@@ -69,14 +69,16 @@ function AddExpense() {
             Add an Expense
             </Button>
             </div>
-            <form onSubmit={formik.handleSubmit}>
+
+            
             <Modal show={show} onHide={handleClose}>
                 <Modal.Header closeButton>
                     <Modal.Title className="modal-title">Add an Expense</Modal.Title>
                 </Modal.Header>
 
                 <Modal.Body>
-                        
+
+                            <form onSubmit={formik.handleSubmit}>
                             <label htmlFor="addAmount" className="label-Class" aria-required>Add amount</label><br/>
                             <input id="addAmount" type="number" name="addAmount" onChange={formik.handleChange} value={formik.values.addAmount}  onBlur={formik.handleBlur}/><br/>
                             {formik.errors.addAmount && formik.touched.addAmount  ? <div className="error-alert">{formik.errors.addAmount}</div> : null }
@@ -101,15 +103,15 @@ function AddExpense() {
                             <label class="label-Class" htmlFor="selectMembers">Share with</label><br></br>
                             <Multiselect options={options} displayValue="userName" id="selectMembers" name="selectMembers" onChange={formik.handleChange} value={formik.values.selectMembers}/>
                             </div>
+
+                            <Modal.Footer>
+                                <Button variant="secondary" onClick={handleClose}>Close</Button>
+                                <Button variant="primary" type="submit" style={{backgroundColor:'#091130'}} className="btn-block">Share</Button>
+                            </Modal.Footer>
+                            </form>
                 </Modal.Body>
-
-                <Modal.Footer>
-                    <Button variant="secondary" onClick={handleClose}>Close</Button>
-                    <Button variant="primary" type='submit' style={{backgroundColor:'#091130'}}  className="btn-block">Share</Button>
-                </Modal.Footer>
-
             </Modal>
-            </form>
+            
       </>
     );
 }

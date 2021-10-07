@@ -5,7 +5,7 @@ import {Multiselect}  from 'multiselect-react-dropdown'
 import {useFormik} from 'formik'
 
 //initiating states
-const initialValues = {
+let initialValues = {
     addAmount : '',
     description: '',
     selectGroup: '',
@@ -34,9 +34,10 @@ const validate = values => {
         errors.selectGroup = 'Select group is required'
     }
 
-    if(!values.selectMembers){
-        errors.selectMembers = 'Share with is required'
+    if(!values.selectMembers < 2){
+        errors.selectMembers = 'A minimum of two members should be selected'
     }
+
 
     return errors
 }
@@ -61,6 +62,12 @@ function AddExpense() {
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
+
+    //Selected Members / ShareWith Handler
+    const handleSelected = (members) => {
+        initialValues.selectMembers.push(members);
+    }
+
 
     return (
       <>  
@@ -101,7 +108,9 @@ function AddExpense() {
 
                             <div className="Share-with">
                             <label class="label-Class" htmlFor="selectMembers">Share with</label><br></br>
-                            <Multiselect options={options} displayValue="userName" id="selectMembers" name="selectMembers" onChange={formik.handleChange} value={formik.values.selectMembers}/>
+                            <Multiselect options={options} onSelect={handleSelected} displayValue="userName" id="selectMembers" name="selectMembers" onChange={formik.handleChange} value={formik.values.selectMembers}/>
+                            {formik.errors.selectMembers && formik.touched.selectMembers ? <div className="error-alert">{formik.errors.selectMembers}</div> : null }
+
                             </div>
 
                             <Modal.Footer>

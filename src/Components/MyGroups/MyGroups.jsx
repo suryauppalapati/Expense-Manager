@@ -124,7 +124,7 @@ function MyGroups() {
                                 </div>
                                 <div className="newgrp-block">
                                     <Container>
-                                            <form onSubmit={formik.handleSubmit}>
+                                        <form onSubmit={formik.handleSubmit}>
                                             <label className="input-label" htmlFor="groupname">Group Name</label><br/>
                                             <input 
                                             type="text" 
@@ -156,7 +156,7 @@ function MyGroups() {
                                                 variant="secondary" 
                                                 size="sm">
                                                 Create group
-                                        </Button>
+                                            </Button>
                                         </form>
                                     </Container>
                                 </div>

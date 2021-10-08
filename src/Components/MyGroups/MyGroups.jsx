@@ -3,7 +3,7 @@ import '../../Styles/MyGroups.css'
 import Navigationbar from '../Navbar/navbar'
 import groupAvatar from '../../Assets/group-avatar.jpg'
 import {Multiselect}  from 'multiselect-react-dropdown'
-import {Card, Container, Row, Col, Button} from 'react-bootstrap'
+import {Card, Container, Row, Button, Alert} from 'react-bootstrap'
 import {useFormik} from 'formik'
 
 const initialValues = {
@@ -66,52 +66,17 @@ function MyGroups() {
                         <Card.Body className="grouplist-cardbody">
                             <Container className="groupList-Container"> {/*Container-Start*/}
                             <Row className="row">
-                                <Col className="groupTitle">Fantastic Four</Col>
-                                <Col className="btn">
-                                <Button className="leaveGroup-btn"
-                                        style={{backgroundColor:"#091130" }} 
-                                        variant="secondary" 
-                                        size="sm">
-                                        Leave
-                                </Button>
-                                </Col>
+                            <Alert variant='primary' className="grpTitle" style={{textAlign: 'center'}}>Capstone 2021</Alert>
                             </Row>
 
                             <Row className="row">
-                                <Col className="groupTitle">Newyear 2021</Col>
-                                <Col className="btn">
-                                <Button className="leaveGroup-btn"
-                                        style={{backgroundColor:"#091130" }} 
-                                        variant="secondary" 
-                                        size="sm">
-                                        Leave
-                                </Button>
-                                </Col>
+                            <Alert variant='primary' className="grpTitle" style={{textAlign: 'center'}}>Weekend party</Alert>
                             </Row>
 
                             <Row className="row">
-                                <Col className="groupTitle">Robb's Bday</Col>
-                                <Col className="btn">
-                                <Button className="leaveGroup-btn"
-                                        style={{backgroundColor:"#091130" }} 
-                                        variant="secondary" 
-                                        size="sm">
-                                        Leave
-                                </Button>
-                                </Col>
+                            <Alert variant='primary' className="grpTitle" style={{textAlign: 'center'}}>Sunrise Charity</Alert>
                             </Row>
 
-                            <Row className="row">
-                                <Col className="groupTitle">Mock Project</Col>
-                                <Col className="btn">
-                                <Button className="leaveGroup-btn"
-                                        style={{backgroundColor:"#091130" }} 
-                                        variant="secondary" 
-                                        size="sm">
-                                        Leave
-                                </Button>
-                                </Col>
-                            </Row>
                             </Container> {/*--Container-End--*/}
                             
 

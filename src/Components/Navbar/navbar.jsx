@@ -12,22 +12,15 @@ function Navigationbar() {
 
     //Get Notification data
     useEffect(() => {
-        axios.get('http://localhost:8001/get_notification')
+        axios.post('http://localhost:8001/get_notification',{"userId" : "615afedcd20a2cf1a41e37f3"})
             .then(res => {
-                console.log(res);
+                // console.log(res);
                 setNotifications(res.data)
             })
             .catch(err => {
                 console.log(err);
             })
     }, [])
-
-    //Joining SettleNotifications and RequestNotifications
-    let settled =  notifications.settled_notification;
-    let requested = notifications.request_notification;
-
-    // // concat settled and requested
-    const allNotifications = settled + requested;
 
     //Notification Modal states
     const [show, setShow] = useState(false);
@@ -61,10 +54,18 @@ function Navigationbar() {
                 </Modal.Header>
 
                 <Modal.Body>
-                        <div> {/*--Mapping Notification data--*/}
-                        {allNotifications && allNotifications.map(reminder => (
+                        <div> {/*--Mapping Settled Notification data--*/}
+                        {notifications.settled_notification && notifications.settled_notification.map(reminders => (
                             <Alert variant='primary' className="alertMessage" style={{textAlign: 'center'}}>
-                            {reminder}
+                            {reminders}
+                            </Alert>
+                        ))}  
+                        </div>
+
+                        <div> {/*--Mapping Requested Notification data--*/}
+                        {notifications.requested_notification && notifications.requested_notification.map(reminders => (
+                            <Alert variant='primary' className="alertMessage" style={{textAlign: 'center'}}>
+                            {reminders}
                             </Alert>
                         ))}  
                         </div>

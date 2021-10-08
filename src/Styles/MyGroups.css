@@ -105,3 +105,11 @@
 .error-alert{
     color: red;
 }
+
+.groupList-Container{
+    margin-left: 0px;
+}
+
+.grpTitle{
+    font-family: 'Inter', sans-serif;
+}

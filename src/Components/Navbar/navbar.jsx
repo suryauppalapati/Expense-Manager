@@ -6,9 +6,23 @@ import { BsFillBellFill } from 'react-icons/bs'
 import { MdOutlineMenuBook } from 'react-icons/md'
 import '../../Styles/navbar.css'
 
-function Navigationbar() {
-    //initialising states for Notifications
-    const [notifications, setNotifications] = useState([])
+function Navigationbar() { 
+    //initialising states for Notifications, UserName
+    const [notifications, setNotifications] = useState([]);
+    const [userName, setUserName] = useState();
+
+    //Get Username from DB
+    useEffect(() => {
+        axios.post('http://localhost:8001/current_user_detail',{"userId" : "615afedcd20a2cf1a41e37f3"})
+            .then(res => {
+                // console.log("res");
+                setUserName(res.data.data.name)
+            })
+            .catch(err => {
+                console.log(err);
+            })
+    }, [])
+
 
     //Get Notification data
     useEffect(() => {
@@ -34,7 +48,7 @@ function Navigationbar() {
                 Expense Book
             </Navbar.Brand>
             <Nav className="me-auto" style={{color: 'white', size: 'lg', marginLeft:'870px'}}>
-            <div className="username">Joseph Morgan</div>
+            <div className="username">{userName}</div>
             <NavDropdown   title={<FaUserAlt style={{color: 'white', size: 'lg', marginTop:'-5px'}} />} className="dropdownTitle" id="navbarScrollingDropdown" >
             <NavDropdown.Item href="#">My Groups</NavDropdown.Item>
             <NavDropdown.Item href="#">My Profile</NavDropdown.Item>

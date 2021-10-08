@@ -12,7 +12,7 @@ function DashboardCards() {
 
     //get owing details
     useEffect(() => {
-        axios.post('http://localhost:8001/dashboard_owing_details', {"userId" : "615afedcd20a2cf1a41e37f2"})
+        axios.post('http://localhost:8001/dashboard_owing_details', {"userId" : "615afedcd20a2cf1a41e37f3"})
             .then(res => {
                 // console.log(res);
                 setOwedetails(res.data)
@@ -27,13 +27,13 @@ function DashboardCards() {
     //Total you-owe = adding all the amounts in you-owe array
     let totalYouOwe;
     if (owedetails.youOweDetail) {
-        totalYouOwe = owedetails.youOweDetail.map(element => element.amount).reduce((a, b) => a + b, 0);
+        totalYouOwe = (owedetails.youOweDetail.map(element => element.amount).reduce((a, b) => a + b, 0)).toFixed(2);
     }
 
     //Total you-owe = adding all the amounts in you-are-owed array
     let totalYouAreOwed;
     if (owedetails.youAreOwedDetail) {
-        totalYouAreOwed = owedetails.youAreOwedDetail.map(element => element.amount).reduce((a, b) => a + b, 0);
+        totalYouAreOwed = (owedetails.youAreOwedDetail.map(element => element.amount).reduce((a, b) => a + b, 0)).toFixed(2);
     }
 
     //Total Balance = youAreOwed - youOwe

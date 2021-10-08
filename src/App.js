@@ -1,14 +1,14 @@
 import './App.css';
-// import Dashboard from './Components/Dashboard/Dashboard-main'
+import Dashboard from './Components/Dashboard/Dashboard-main'
 // import MyProfile from './Components/MyAccount/MyProfile.jsx';
-import MyGroups from './Components/MyGroups/MyGroups'
+// import MyGroups from './Components/MyGroups/MyGroups'
 
 function App() {
   return (
     <div className="App">
-      {/* <Dashboard/> */}
+      <Dashboard/>
       {/* <MyProfile/> */}
-      <MyGroups/>
+      {/* <MyGroups/> */}
    </div>
   );
 }

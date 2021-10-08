@@ -41,7 +41,7 @@ const [initdata, setinitValues] = useState({
 const onSubmit = values => {
     //console.log(values)
     axios.put('http://localhost:8001/update_user',       {
-        "userId":"615afeabd20a2cf1a41e37f2",
+        "userId":"615afedcd20a2cf1a41e37f3",
         "username":values.username,
         "email":values.email,
         "password":values.password
@@ -70,7 +70,7 @@ const formik = useFormik({
 
 useEffect(() => {
     if(!fetched){
-        axios.post('http://localhost:8001/current_user_detail', { "userId":"615afeabd20a2cf1a41e37f2" })
+        axios.post('http://localhost:8001/current_user_detail', { "userId":"615afedcd20a2cf1a41e37f3" })
         .then(res => {
             //console.log(res.data);
             var resData=res.data

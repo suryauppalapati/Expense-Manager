@@ -7,9 +7,10 @@ function YouOweSingle({data}) {
 
     const settleHandler = () => {
         axios.put('http://localhost:8001/settle',
-        {"fromUserId":"615afeabd20a2cf1a41e37f2", "toUserId":data.you_owe_to_user_id})
+        {"fromUserId":"615afedcd20a2cf1a41e37f3", "toUserId":data.you_owe_to_user_id})
         .then((res)=> {
             console.log(res);
+            alert('Amount settled!')
         })
         .then(err => {
             console.log(err);
@@ -19,7 +20,7 @@ function YouOweSingle({data}) {
         <div>
              <div className="youowe-info">
                             <Card.Body className="you-owe-body text-class" style={{ float: 'center' }}>
-                                    you owe {data.amount} to {data.you_owe_to_user_name}
+                                    you owe {(data.amount).toFixed(2)} to {data.you_owe_to_user_name}
 
                                     <Button className="btn-block"
                                     style={{ marginTop: '0px', marginLeft: '20px',backgroundColor:"#192b74" }} 

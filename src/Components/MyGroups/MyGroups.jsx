@@ -62,7 +62,7 @@ function MyGroups() {
             })
             .catch(err => {
                 console.log(err);
-            }) 
+            }) // eslint-disable-next-line
     }, [])
 
     const [options] = useState(userData)

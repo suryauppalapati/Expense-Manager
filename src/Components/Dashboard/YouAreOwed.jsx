@@ -11,7 +11,7 @@ function YouAreOwed() {
 
     //Fetching data from db
     useEffect(() => {
-       axios.post('http://localhost:8001/dashboard_owing_details',{"userId" : "615afeabd20a2cf1a41e37f2"})
+       axios.post('http://localhost:8001/dashboard_owing_details',{"userId" : "615afedcd20a2cf1a41e37f3"})
        .then((res) => {
             setYouAreOwed(res.data.youAreOwedDetail)
         //    console.log(res);

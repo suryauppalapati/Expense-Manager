@@ -1,21 +1,10 @@
-import React, { useState } from 'react'
+import React, { useState,useEffect } from 'react'
 import '../../Styles/MyProfile.css'
 import Navigationbar from '../Navbar/navbar'
 import Avatar from '../../Assets/Avatar.png'
+import axios from 'axios'
 import {Card, Button, Row, Col, Container} from 'react-bootstrap'
 import {useFormik} from 'formik'
-
-//initiating states
-const initialValues = {
-    username : '',
-    email : '',
-    password : '',
-}
-
-//SubmitHandler
-const onSubmit = values => {
-    console.log(values)
-}
 
 //Form Validations
 const validate = values => {
@@ -30,8 +19,8 @@ const validate = values => {
 
     if(!values.password){
         errors.password = 'Password should not be empty'
-    }else if(values.password.length < 8){
-            errors.password = 'Password should have min 8 characters'
+    }else if(values.password.length < 6){
+            errors.password = 'Password should have min 6 characters'
     }
 
     return errors
@@ -40,20 +29,72 @@ const validate = values => {
 
 
 function MyProfile() {
+const [fetched,setFetched]=useState(false);
+const [edit, setEdit] = useState(true)
+const [initdata, setinitValues] = useState({
+    username : '',
+    email : '',
+    password : '',
+    currency:'Rupee',
+    language:'English'});
+    
+const onSubmit = values => {
+    //console.log(values)
+    axios.put('http://localhost:8001/update_user',       {
+        "userId":"615afeabd20a2cf1a41e37f2",
+        "username":values.username,
+        "email":values.email,
+        "password":values.password
+      })
+    .then(res => {
+       //console.log(res.data)
+       if(res.data.success){
+       alert("Updated user")
+       }
+       else{
+           alert(res.data.message)
+       }
+    })
+    .catch(err => {
+        console.log(err);
+})
+
+}
 
 const formik = useFormik({
-    initialValues,
+    enableReinitialize: true,
+    initialValues:initdata,
     onSubmit,
     validate
 })
 
- const [edit, setEdit] = useState(true)
+useEffect(() => {
+    if(!fetched){
+        axios.post('http://localhost:8001/current_user_detail', { "userId":"615afeabd20a2cf1a41e37f2" })
+        .then(res => {
+            //console.log(res.data);
+            var resData=res.data
+            setinitValues( {
+                username : resData.data.name,
+                email : resData.data.email_id,
+                password : resData.data.password,
+                currency:'Rupee',
+                language:'English'
+            })
+            setFetched(true);
+            //console.log(initdata)
+        })
+        .catch(err => {
+            console.log(err);
+    })
+}
+})
 
 const setEditHandler = () => setEdit(false)
-const editHandler = () => {
-    alert('Profile updated!')
-    setEdit(true)
-    }
+const editHandler = (values) => {
+
+}
+
 
     return (
         <>
@@ -61,7 +102,7 @@ const editHandler = () => {
             <div className="myProfile-Body">{/*Container*/}
     
                 <div className="displayPicture">{/*user Avatar block starts*/}
-                    <div className="userName">Joseph Morgan</div>
+                    <div className="userName">User Name : {initdata.username}</div>
                         <img src={Avatar} className="avatar" alt="avatar"/>
                     </div>
 
@@ -71,7 +112,7 @@ const editHandler = () => {
                             <Card.Body className="myDetails-card" style={{float: 'center'}}>
                                 <Container style={{marginTop:'-50px'}}>
 
-                            <form onSubmit={formik.handleSubmit}>
+                            <form enablereinitialize onSubmit={formik.handleSubmit}>
                                 <Row className="row"> {/*NAME-ROW*/}
                                     <Col>
                                         <label className="input-label" htmlFor="username">Name</label>
@@ -139,7 +180,8 @@ const editHandler = () => {
                                         type="text" 
                                         id="currency" 
                                         name="currency" 
-                                        className="inputField" 
+                                        className="inputField"
+                                        value={formik.values.currency}
                                         disabled>
                                         </input>
                                     </Col>
@@ -147,14 +189,15 @@ const editHandler = () => {
 
                                 <Row className="row"> {/*COUNTRY-ROW*/}
                                     <Col>
-                                        <label className="input-label" htmlFor="currency">Country</label>
+                                        <label className="input-label" htmlFor="currency">Language</label>
                                     </Col>
                                     <Col>
                                         <input 
                                         type="text" 
-                                        id="country" 
-                                        name="country" 
+                                        id="language" 
+                                        name="language" 
                                         className="inputField" 
+                                        value={formik.values.language}
                                         disabled>
                                         </input>
                                     </Col>

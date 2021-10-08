@@ -34,9 +34,9 @@ const validate = values => {
         errors.selectGroup = 'Select group is required'
     }
 
-    if(!values.selectMembers < 2){
-        errors.selectMembers = 'A minimum of two members should be selected'
-    }
+    // if(!values.selectMembers < 2){
+    //     errors.selectMembers = 'A minimum of two members should be selected'
+    // }
 
 
     return errors

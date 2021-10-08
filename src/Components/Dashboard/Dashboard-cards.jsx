@@ -12,7 +12,7 @@ function DashboardCards() {
 
     //get owing details
     useEffect(() => {
-        axios.post('http://localhost:8001/dashboard_owing_details', {"userId" : "615afedcd20a2cf1a41e37f3"})
+        axios.post('http://localhost:8001/dashboard_owing_details', {"userId" : "615afedcd20a2cf1a41e37f2"})
             .then(res => {
                 // console.log(res);
                 setOwedetails(res.data)

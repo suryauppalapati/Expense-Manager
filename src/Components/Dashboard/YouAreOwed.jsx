@@ -1,6 +1,7 @@
 import axios from 'axios'
 import React, {useState, useEffect} from 'react'
 import { Card, Button } from 'react-bootstrap'
+import YouAreOwedSingle from './YouAreOwedSingle'
 import '../../Styles/YouAreOwed.css'
 
 function YouAreOwed() {
@@ -10,15 +11,28 @@ function YouAreOwed() {
 
     //Fetching data from db
     useEffect(() => {
-       axios.post('http://localhost:8001/dashboard_owing_details',{"userId" : "615afedcd20a2cf1a41e37f3"})
+       axios.post('http://localhost:8001/dashboard_owing_details',{"userId" : "615afeabd20a2cf1a41e37f2"})
        .then((res) => {
-            setYouAreOwed(res.data)
+            setYouAreOwed(res.data.youAreOwedDetail)
         //    console.log(res);
        })
        .catch((err) => {
            console.log(err);
        })
     }, [])
+
+    //Handle Request All
+    const requestAllHandler = () => {
+        axios.put('http://localhost:8001/request_all',
+        { "toUserId":"615afeabd20a2cf1a41e37f2"})
+        .then((res)=> {
+            // console.log("settleall", res);
+            alert('Settled all payments!')
+        })
+        .then(err => {
+            console.log(err);
+        })
+    }
 
     return (
         <div>
@@ -27,19 +41,8 @@ function YouAreOwed() {
             <div className="youowe-container" style={{marginLeft: '55px'}} scroll>
                 <Card style={{ width: '35rem', height: '15rem' }} className="shadow p-3 mb-5 bg-white rounded">
 
-                {youAreOwed.youAreOwedDetail && youAreOwed.youAreOwedDetail.map(data => ( 
-                            <div className="youowe-info">
-                            <Card.Body className="you-owe-body text-class" style={{ float: 'center' }}>
-                                    you owe {data.youAreOwedDetail.amount} to {data.youAreOwedDetail.you_owe_to_user_name}
-
-                                    <Button className="btn-block"
-                                    style={{ marginTop: '0px', marginLeft: '20px',backgroundColor:"#192b74" }} 
-                                    variant="secondary" 
-                                    size="sm">
-                                    Settle
-                                </Button>{' '}
-                        </Card.Body>
-                        </div>
+                {youAreOwed && youAreOwed.map(data => ( 
+                            <YouAreOwedSingle data={data}/>
                         ))}
                     
                 </Card>
@@ -47,6 +50,7 @@ function YouAreOwed() {
             <Button className="btn-settleall"
                                     style={{ marginTop: '-60px', marginLeft: '535px',backgroundColor:'#091130' }} 
                                     variant="secondary" 
+                                    onClick={requestAllHandler}
                                     size="sm">
                                     Request all
                                 </Button>{' '}
